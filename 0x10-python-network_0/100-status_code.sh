@@ -1,2 +1,3 @@
 #!/bin/bash
-curl -sI "$1" | grep -i "HTTP" | awk '{print $2}'
+# send a request and only show the status code
+curl -s -o /dev/null -I --w "%{http_code}" "$1"
