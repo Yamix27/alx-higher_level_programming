@@ -1,3 +1,7 @@
 #!/usr/bin/node
 const request = require('request');
-request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], (_, response, body) => !_ && JSON.parse(body).characters.forEach(character => request(character, (_, response, body) => !_ && console.log(JSON.parse(body).name))));
+const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
+
+request(url, (error, response, body) => {
+	  if (!error) JSON.parse(body).characters.forEach(character => request(character, (_, response, body) => console.log(JSON.parse(body).name)));
+});
