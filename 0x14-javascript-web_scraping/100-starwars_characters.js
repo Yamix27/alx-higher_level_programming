@@ -1,21 +1,15 @@
 #!/usr/bin/node
-
-const req = require('request');
-const id = process.argv[2];
-const url = 'https://swapi-api.hbtn.io/api/films/';
-req.get(url + id, function (error, res, body) {
-	if (error) {
-		console.log(error);
-	}
-	const data = JSON.parse(body);
-	const dd = data.characters;
-	for (const i of dd) {
-		req.get(i, function (error, res, body1) {
-			if (error) {
-				console.log(error);
-			}
-			const data1 = JSON.parse(body1);
-			console.log(data1.name);
-		});
-	}
-});
+// print all characters of a Star Wars movie:
+//
+// const request = require('request');
+// const id = process.argv[2];
+//
+// request(`https://swapi-api.alx-tools.com/api/films/${id}`, { json: true }, (err, res, body) => {
+//   if (err) console.log(err);
+//     for (const character of body.characters) {
+//         request(character, { json: true }, (err, res, body) => {
+//               if (err) console.log(err);
+//                     console.log(body.name);
+//                         });
+//                           }
+//                           });
