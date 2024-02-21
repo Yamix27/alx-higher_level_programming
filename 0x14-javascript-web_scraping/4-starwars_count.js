@@ -12,6 +12,6 @@ request(url, (err, res, body) => {
     console.log(err);
   }
 
-const count = body.split('/people/18/').length - 1;
-console.log(count);
+  const count = body.split('/people/18/').length - 1;
+  console.log(count);
 });
