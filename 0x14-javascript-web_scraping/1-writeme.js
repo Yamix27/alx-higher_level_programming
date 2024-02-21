@@ -1,12 +1,5 @@
 #!/usr/bin/node
-write a string to a file.
-
 const fs = require('fs');
-const file = process.argv[2];
-const string = process.argv[3];
-
-try {
-  fs.writeFileSync(file, string, { encoding: 'utf8' });
-} catch (err) {
-  console.error(err);
-}
+fs.writeFile(process.argv[2], process.argv[3], error => {
+  if (error) console.log(error);
+});
